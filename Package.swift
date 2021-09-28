@@ -41,6 +41,10 @@ let package = Package(
                 .copy("Gizmos/Translate/arrow3.obj"),
 
                 .copy("Data/demo_hex.mesh"),
+                .copy("Data/demo_tet.mesh"),
+                .copy("Data/demo_tri.obj"),
+                .copy("Data/demo_quad.obj"),
+                
                 .copy("Shader/Shaders.metal")
             ]
         )
