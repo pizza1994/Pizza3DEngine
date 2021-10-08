@@ -196,16 +196,18 @@ public class Canvas : MTKView{
     }
     
     @objc private func cameraZoom(_ sender: UIPinchGestureRecognizer){
-        if sender.state == .began || sender.state == .changed {
+        if sender.state == .changed {
             if !enableCameraControls || isMoving {return}
             isZooming = true
+            
+            let velocity = sender.velocity
             let scale = sender.scale
             if scene?.camera.projectionType == .Perspective {
                 if scale < 1{
-                    if(scene?.camera.perspectiveSettings.fov ?? 180 < 179){scene?.camera.perspectiveSettings.fov+=cameraZoomSensitivity}
+                    if(scene?.camera.perspectiveSettings.fov ?? 180 < 179){scene?.camera.perspectiveSettings.fov+=cameraZoomSensitivity*velocity}
                 }
                 else{
-                    if(scene?.camera.perspectiveSettings.fov ?? 0 > 1){scene?.camera.perspectiveSettings.fov-=cameraZoomSensitivity}
+                    if(scene?.camera.perspectiveSettings.fov ?? 0 > 1){scene?.camera.perspectiveSettings.fov-=cameraZoomSensitivity*velocity}
                 }
             }
             else{
@@ -218,8 +220,9 @@ public class Canvas : MTKView{
             }
         }
         
-        isZooming = false
-        
+        else{
+            isZooming = false
+        }
         
     }
     
