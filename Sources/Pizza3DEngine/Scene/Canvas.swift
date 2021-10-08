@@ -201,7 +201,7 @@ public class Canvas : MTKView{
             isZooming = true
             
             let velocity = Float(sender.velocity).magnitude
-            let scale = sender.scale
+
             if scene?.camera.projectionType == .Perspective {
                 if sender.velocity < 0{
                     if(scene?.camera.perspectiveSettings.fov ?? 180 < 179){scene?.camera.perspectiveSettings.fov+=cameraZoomSensitivity*velocity}
@@ -211,7 +211,7 @@ public class Canvas : MTKView{
                 }
             }
             else{
-                if scale < 1{
+                if sender.velocity < 0{
                     scene?.camera.orthographicSettings.zoom = simd_clamp((scene?.camera.orthographicSettings.zoom)!-cameraZoomSensitivity/10, 0.01, Float.greatestFiniteMagnitude)
                 }
                 else{
