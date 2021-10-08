@@ -203,7 +203,7 @@ public class Canvas : MTKView{
             let velocity = Float(sender.velocity).magnitude
             let scale = sender.scale
             if scene?.camera.projectionType == .Perspective {
-                if scale < 1{
+                if sender.velocity < 0{
                     if(scene?.camera.perspectiveSettings.fov ?? 180 < 179){scene?.camera.perspectiveSettings.fov+=cameraZoomSensitivity*velocity}
                 }
                 else{
