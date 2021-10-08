@@ -200,7 +200,7 @@ public class Canvas : MTKView{
             if !enableCameraControls || isMoving {return}
             isZooming = true
             
-            let velocity = sender.velocity
+            let velocity = Float(sender.velocity)
             let scale = sender.scale
             if scene?.camera.projectionType == .Perspective {
                 if scale < 1{
