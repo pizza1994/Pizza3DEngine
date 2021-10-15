@@ -202,7 +202,7 @@ public class AbstractMesh{
         
         for pid in polys.indices{
             
-            if !visiblePolys[pid] {continue}
+            //if !visiblePolys[pid] {continue}
                 
             let centroid = polyCentroid(pid: pid)
             let dist = point.dist(other: centroid)
