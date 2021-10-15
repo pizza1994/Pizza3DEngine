@@ -201,6 +201,9 @@ public class AbstractMesh{
         var distance : Float = Float.greatestFiniteMagnitude
         
         for pid in polys.indices{
+            
+            if !visiblePolys[pid] {continue}
+                
             let centroid = polyCentroid(pid: pid)
             let dist = point.dist(other: centroid)
             if dist < distance{

@@ -418,6 +418,7 @@ public class AbstractPolyhedralMesh : AbstractMesh{
     override public func pickFace(point: vec3) -> Int{
         var ordered = [(Float, Int)](repeating: (0,0), count: faces.count)
         for fid in faces.indices{
+            if !faceIsVisible(fid: fid) {continue}
             ordered[fid] = (point.dist(other: faceCentroid(fid: fid)), fid)
         }
         ordered.sort{
