@@ -32,7 +32,7 @@ public func readMesh(fileURL : URL) throws -> ([vec3], [[Int]], [Int]){
     var start = 0
     for i in lines.indices{
         let line = String(lines[i])
-        if line.contains("Vertices"){
+        if line.contains("Vertices") && !line.contains("#"){
             numVertices = Int(lines[i+1]) ?? 0
             start = i+2
             break
