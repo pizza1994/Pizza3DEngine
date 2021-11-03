@@ -47,7 +47,7 @@ public func readMesh(fileURL : URL) throws -> ([vec3], [[Int]], [Int]){
     
     for i in start+numVertices..<lines.count{
         let line = String(lines[i])
-        if line.contains("Tetrahedra") || line.contains("Hexahedra"){
+        if (line.contains("Tetrahedra") || line.contains("Hexahedra")) && !line.contains("#"){
             numPolys = Int(lines[i+1]) ?? 0
             start = i+2
             break
