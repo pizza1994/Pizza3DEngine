@@ -6,7 +6,7 @@ You can find the iPad app at this [link](https://linktoapp).
 
 <p align="center"><img src="teaser_HD.png"></p>
 
-##Usage
+## Usage
 
 The main elements of this library are:
 
@@ -90,7 +90,7 @@ class CanvasViewController : UIViewController, RendererDelegate {
 
 ```
 
-##Installation
+## Installation
 
 This package can be installed with the Swift Package Manager:
 
@@ -100,7 +100,7 @@ dependencies: [
 ]
 ```
 
-##Requirements
+## Requirements
 
 - iPadOS 14.0+
 - Xcode 12
