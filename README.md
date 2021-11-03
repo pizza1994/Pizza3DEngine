@@ -8,10 +8,10 @@ You can find the iPad app at this [link](https://linktoapp).
 
 The main elements of this library are:
 
-- Canvas:   The view where the 3D objects are drawn
+- Canvas:   The view where the 3D objects are drawn on
 - Scene:    The container of all the 3D objects
 - Drawable: An object that can be drawn on the Canvas
-- Renderer: The class that draw the scene on the Canvas
+- Renderer: The class that draws the scene on the Canvas
 
 An example of how to build a simple scene can be found below:
 
