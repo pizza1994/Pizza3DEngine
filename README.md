@@ -3,7 +3,7 @@
 Here is my custom 3D engine built in Swift and Metal.  
 During my Ph.D., I have received tons of volumetric meshes to visualize and analyze. Sometimes I couldn't promptly go to my computer station to open the mesh with a desktop app, but, in all these cases, I had my iPad with me.  
 I decided to build an app for the iPad capable of opening both surface and volumetric meshes, with some useful functionalities like slicing, digging, picking, etc. I started from scratch by building this library first.  
-You can find the iPad app at this [link](https://linktoapp).
+You can find the iPad app at this [link](https://apps.apple.com/it/app/shapeviewer/id1593185533).
 
 <p align="center"><img src="teaser.png"></p>
 
