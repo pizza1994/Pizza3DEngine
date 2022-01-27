@@ -59,7 +59,7 @@ public class TetMesh : AbstractPolyhedralMesh, Geometry{
                         default:
                             normal = normals[fid]
                     }
-                    let color = useLabelColor ? labelColors[lab] : faceIsInternal && useInternalColor ? internalColor : polyColors[pid]
+                    let color = useLabelColor ? labelColors[lab] : (useQualityColor ? Color.valueToMap(value: quality(pid: pid)) : (faceIsInternal && useInternalColor ? internalColor : polyColors[pid]))
                     let newVert = Vertex.build(pos: pos, color: color!, normal: normal, uv: vec2(0,0), primitiveType: 0)
                     triangles.append(newVert)
                 }
@@ -95,5 +95,10 @@ public class TetMesh : AbstractPolyhedralMesh, Geometry{
             }
         }
         return wireframe
+    }
+    
+    func quality(pid : Int) -> Float{
+        let vids = self.adjP2V[pid]
+        return tetScaledJacobian(p0: vertices[vids[0]], p1: vertices[vids[1]], p2: vertices[vids[2]], p3: vertices[vids[3]])
     }
 }

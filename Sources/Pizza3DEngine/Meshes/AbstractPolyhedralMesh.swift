@@ -42,6 +42,12 @@ public class AbstractPolyhedralMesh : AbstractMesh{
         }
     }
     
+    public var useQualityColor : Bool = false{
+        willSet(newValue){
+            didChange = true
+        }
+    }
+    
     func build(vertices : [vec3], polys : [[Int]], labels : [Int]?){
         
         self.vertices.reserveCapacity(vertices.count)
