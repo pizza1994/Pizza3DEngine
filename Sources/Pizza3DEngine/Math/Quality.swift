@@ -39,8 +39,8 @@ func hexScaledJacobian(p0 : vec3, p1 : vec3, p2 : vec3, p3 : vec3,
               [l11, l8, -l4], [-l8, l9, -l5], [-l9, l10, -l6], [-l10,-l11, -l7],
               [x0, x1, x2]]
     
-    for (i, el) in st.enumerated(){
-        sj[i] = determinant(c0: el[0], c1: el[1], c2: el[2])
+    for el in st{
+        sj.append(determinant(c0: el[0], c1: el[1], c2: el[2]))
     }
     
     let msj_ = sj.min()
