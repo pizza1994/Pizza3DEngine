@@ -54,7 +54,7 @@ public struct Slice{
 //The mesh classes are partially inspired by https://github.com/mlivesu/cinolib/
 public class AbstractMesh{
     
-    var vertices = [vec3](){
+    internal(set) public var vertices = [vec3](){
         didSet{
             didChange = true
         }
