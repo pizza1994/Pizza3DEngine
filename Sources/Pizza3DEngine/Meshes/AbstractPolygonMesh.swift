@@ -105,7 +105,7 @@ public class AbstractPolygonMesh : AbstractMesh{
             
             for nbr in adjE2P[eid]{
                 assert(nbr != pid)
-                if polysAreAdjacent(p0: pid, p1: nbr){
+                if !polysAreAdjacent(p0: pid, p1: nbr){
                     continue
                 }
                 adjP2P[pid].append(nbr)
