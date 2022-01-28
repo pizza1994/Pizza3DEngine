@@ -48,6 +48,17 @@ public class AbstractPolyhedralMesh : AbstractMesh{
         }
     }
     
+    public lazy var quality : [Float] = {
+        
+        var q = [Float]()
+        q.reserveCapacity(polys.count)
+        for pid in 0..<polys.count{
+            q.append(quality(pid: pid))
+        }
+        return q
+        
+    }()
+    
     func build(vertices : [vec3], polys : [[Int]], labels : [Int]?){
         
         self.vertices.reserveCapacity(vertices.count)
@@ -450,6 +461,16 @@ public class AbstractPolyhedralMesh : AbstractMesh{
                 didChange = true
                 break
             }
+        }
+    }
+    
+    public func quality(pid : Int) -> Float{
+        let vids = self.adjP2V[pid]
+        if vids.count == 8{
+            return hexScaledJacobian(p0: vertices[vids[0]], p1: vertices[vids[1]], p2: vertices[vids[2]], p3: vertices[vids[3]], p4: vertices[vids[4]], p5: vertices[vids[5]], p6: vertices[vids[6]], p7: vertices[vids[7]])
+        }
+        else{
+            return tetScaledJacobian(p0: vertices[vids[0]], p1: vertices[vids[1]], p2: vertices[vids[2]], p3: vertices[vids[3]])
         }
     }
     

@@ -78,7 +78,7 @@ public class HexMesh : AbstractPolyhedralMesh, Geometry{
                                 normal = fNormals[j]
                         }
                         let pos = tmpTris[i][j]
-                        let color = useLabelColor ? labelColors[lab] : (useQualityColor ? Color.valueToMap(value: quality(pid: pid)) : (faceIsInternal && useInternalColor ? internalColor : polyColors[pid]))
+                        let color = useLabelColor ? labelColors[lab] : (useQualityColor ? Color.valueToMap(value: quality[pid]) : (faceIsInternal && useInternalColor ? internalColor : polyColors[pid]))
                         let newVert = Vertex.build(pos: pos, color: color!, normal: normal, uv: vec2(0,0),polyCentroid: polyCentroid(pid: pid), primitiveType: 0)
                         triangles.append(newVert)
                     }
@@ -117,9 +117,5 @@ public class HexMesh : AbstractPolyhedralMesh, Geometry{
         return wireframe
     }
     
-    func quality(pid : Int) -> Float{
-        let vids = self.adjP2V[pid]
-        return hexScaledJacobian(p0: vertices[vids[0]], p1: vertices[vids[1]], p2: vertices[vids[2]], p3: vertices[vids[3]], p4: vertices[vids[4]], p5: vertices[vids[5]], p6: vertices[vids[6]], p7: vertices[vids[7]])
-    }
     
 }
